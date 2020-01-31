@@ -1,0 +1,27 @@
+.Logo {
+  display: grid;
+  grid-template-areas:  'app-icon unnumbered-text'
+                        'app-icon days-text';
+}
+
+.app-icon {
+  grid-area: app-icon;
+  align-self: center;
+  justify-self: flex-end;
+
+  img {
+    height: 100px;
+  }
+}
+
+.unnumbered-text {
+  grid-area: unnumbered-text;
+  text-align: start;
+  align-self: flex-end;
+}
+
+.days-text {
+  grid-area: days-text;
+  text-align: start;
+  align-self: flex-start;
+}
