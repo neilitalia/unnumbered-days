@@ -1,6 +1,6 @@
 import React from 'react'
 import './Logo.scss'
-import icon from '../svg/today-24px.svg';
+import icon from '../svg/today-24px.svg'
 
 function Logo() {
   return (
@@ -14,4 +14,4 @@ function Logo() {
   )
 }
 
-export default Logo;
+export default Logo

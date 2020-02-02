@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.scss';
-import SplashScreen from './components/SplashScreen'
+//import './App.scss';
+//import SplashScreen from './components/SplashScreen'
+import Login from './components/Login';
 
-const App = () => {
+function App() {
   return (
     <div className="App">
-      <SplashScreen/>
+      <Login/>
     </div>
   );
 }

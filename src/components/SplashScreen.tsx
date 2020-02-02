@@ -10,4 +10,4 @@ function SplashScreen() {
   )
 }
 
-export default SplashScreen;
+export default SplashScreen
