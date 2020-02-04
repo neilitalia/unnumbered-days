@@ -1,6 +1,6 @@
-import React from 'react'
-import Logo from './Logo'
-import './SplashScreen.scss'
+import React from 'react';
+import Logo from './Logo';
+import './SplashScreen.scss';
 
 function SplashScreen() {
   return (
@@ -10,4 +10,4 @@ function SplashScreen() {
   )
 }
 
-export default SplashScreen
+export default SplashScreen;
