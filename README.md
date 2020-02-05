@@ -1,3 +1,5 @@
+# unnumbered days app [![Netlify Status](https://api.netlify.com/api/v1/badges/4faafcdc-dbf6-494f-82c7-8ce2d1e69886/deploy-status)](https://app.netlify.com/sites/unnumbered-days/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
