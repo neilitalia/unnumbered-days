@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,19 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://neilitalia.tech/">
-        Neil Italia
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -46,8 +34,46 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://neilitalia.tech/">
+        Neil Italia
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
 export default function SignIn() {
   const classes = useStyles();
+
+  const API_URI = "http://localhost:3020/api";
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  async function postLogin(){
+    axios.post(API_URI+'/user/login', {
+      "email": email,
+      "password": password
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -70,6 +96,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onChange={handleEmailChange}
           />
           <TextField
             variant="outlined"
@@ -80,18 +108,20 @@ export default function SignIn() {
             label="Password"
             type="password"
             id="password"
+            value={password}
             autoComplete="current-password"
+            onChange={handlePasswordChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={()=>postLogin()}
           >
             Sign In
           </Button>
