@@ -48,9 +48,10 @@ function Copyright() {
 }
 
 export default function SignIn() {
+
   const classes = useStyles();
 
-  const API_URI = "http://localhost:3020/api";
+  const API = "http://3.136.132.160:3020/api"
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -63,7 +64,7 @@ export default function SignIn() {
   };
 
   async function postLogin(){
-    axios.post(API_URI+'/user/login', {
+    axios.post( API + '/user/login', {
       "email": email,
       "password": password
     })
@@ -72,6 +73,7 @@ export default function SignIn() {
     })
     .catch(function (error) {
       console.log(error);
+      console.log(API)
     });
   }
 
