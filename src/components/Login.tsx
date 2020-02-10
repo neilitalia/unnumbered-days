@@ -51,7 +51,7 @@ export default function SignIn() {
 
   const classes = useStyles();
 
-  const API = "http://3.136.132.160:3020/api"
+  const API = process.env.REACT_APP_API_URI;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -73,7 +73,6 @@ export default function SignIn() {
     })
     .catch(function (error) {
       console.log(error);
-      console.log(API)
     });
   }
 
